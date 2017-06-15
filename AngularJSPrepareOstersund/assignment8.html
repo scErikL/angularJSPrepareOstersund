@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+
+        <p>{{item.Name}}</p>
+        <p>{{item.Price}}</p>
+        <p>{{item.Description}}</p>
+
+        <h2>{{output()}}</h2>
+        <input type="text" ng-model="inputText" />
+
+    </div>    
+    
+    
+    
+    <script src="Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module("myApp", []);
+        var myCtrl = function ($scope) {
+
+            //uppgift 1:
+            var item = {
+                Name: "Brandbomb",
+                Price: 33,
+                Description:"Brandfarlig"
+            }
+            $scope.item = item;
+
+            //8.3:
+            $scope.inputText = '';
+            $scope.output = function () {
+                return $scope.inputText.split("").reverse().join("");
+            };
+    
+        }
+        app.controller("myController", myCtrl);
+      
+        
+    </script>
+
+</body>
+</html>
